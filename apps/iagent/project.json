@@ -11,7 +11,7 @@
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "options": {
-        "outputPath": "dist/apps/iagent",
+        "outputPath": "dist",
         "index": "apps/iagent/src/index.html",
         "main": "apps/iagent/src/main.ts",
         "polyfills": "apps/iagent/src/polyfills.ts",
@@ -33,7 +33,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "50mb"
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",
