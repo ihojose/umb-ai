@@ -9,9 +9,6 @@ jobs:
     steps:
       - name: IHOJOSE - Inteligencia Artificial
         uses: actions/checkout@v3.0.2
-        with:
-          lfs: true
-          token: ${{ secrets.UMB }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3.4.1
