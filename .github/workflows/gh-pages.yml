@@ -25,6 +25,6 @@ jobs:
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: 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
+          github_token: {{ secrets.UMB }}
           publish_dir: dist
           enable_jekyll: true
