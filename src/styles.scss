@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Manuela Beltrán University (UMB)
+ * @author Jose Buelvas Santos
+ * @topic Inteligencia Artificial
+ */
+
+$color-umb: #991826;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Toolbar -------------------------------------------------------------------------------------------------------------
+.app-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+
+  &.mat-umb {
+    background-color: $color-umb;
+    color: #fff;
+  }
+}
+
+.nav-button {
+  font-size: 20px;
+}
+
+// Sidenav -------------------------------------------------------------------------------------------------------------
+.umb-content {
+  height: 100%;
+}
+
+.umb-sidenav {
+  .container {
+    height: calc(100vh - 45px);
+    width: 240px;
+    overflow: auto;
+    border-right: 1px solid rgba(black, .12);
+
+    .logo {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .umb-uppercase {
+      text-transform: uppercase;
+
+      a {
+        font-size: 14px;
+        font-weight: bolder;
+
+        &.active {
+          background-color: rgba($color-umb, .2);
+          color: $color-umb;
+        }
+      }
+    }
+  }
+}
