@@ -1,0 +1,30 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: IHOJOSE - Inteligencia Artificial
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build NX Angular
+        run: npm run deploy
+
+      - name: Deploy Static
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: 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
+          publish_dir: dist
+          enable_jekyll: true
