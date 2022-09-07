@@ -28,4 +28,3 @@ jobs:
           github_token: ${{ secrets.UMB }}
           publish_branch: gh-pages
           publish_dir: dist
-          enable_jekyll: true
