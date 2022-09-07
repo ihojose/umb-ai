@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# SSH KeyGen
+gh-pages*
+
 # Node
 /node_modules
 npm-debug.log
