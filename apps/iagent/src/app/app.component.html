@@ -4,7 +4,7 @@
   <mat-drawer #drawer class="umb-sidenav" mode="side" opened>
     <div class="container">
       <div class="logo">
-        <img src="/assets/img/umb-logo.png">
+        <img src="./assets/img/umb-logo.png">
       </div>
 
       <mat-divider></mat-divider>
@@ -23,7 +23,7 @@
     </button>
     <span>IHOJOSE <fa-icon [icon]="['fas', 'arrow-right']"></fa-icon> UMB-IA</span>
     <span class="app-spacer"></span>
-    <button mat-icon-button class="nav-button" aria-label="Ver repositorio en GitHub">
+    <button mat-icon-button class="nav-button" aria-label="Ver repositorio en GitHub" (click)="goRepo()">
       <fa-icon [icon]="['fab', 'github']"></fa-icon>
     </button>
   </mat-toolbar>

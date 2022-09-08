@@ -64,3 +64,52 @@ body {
     }
   }
 }
+
+.umb-container {
+  padding: 1rem;
+}
+
+// Simulator ---------------------------------------------------
+.gate-box {
+  strong {
+    font-size: 16px;
+  }
+
+  &.center {
+    text-align: center;
+
+    th {
+      text-align: center;
+    }
+  }
+
+  .mat-header-row {
+    th {
+      min-width: 40px;
+      background-color: $color-umb;
+      color: #fff;
+      padding: 0 .3rem;
+    }
+  }
+}
+
+.simulator {
+  display: flex;
+  flex-direction: row;
+
+  > div {
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+
+  .gates-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    > div {
+      width: 250px;
+    }
+
+  }
+}

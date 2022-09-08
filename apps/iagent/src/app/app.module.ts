@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { PerceptronComponent } from './components/perceptron/perceptron.component';
 import { IntelligentAgentComponent } from './components/intelligent-agent/intelligent-agent.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule( {
   declarations: [
@@ -31,7 +32,8 @@ import { IntelligentAgentComponent } from './components/intelligent-agent/intell
     MatToolbarModule,
     FontAwesomeModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
