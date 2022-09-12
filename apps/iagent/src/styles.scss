@@ -32,6 +32,26 @@ body {
   font-size: 20px;
 }
 
+// Buttons
+.mat-button {
+  &.mat-umb {
+    background-color: $color-umb;
+    color: #fff;
+  }
+}
+
+.mat-fab, mat-mini-fab {
+  &.mat-umb {
+    background-color: $color-umb;
+    color: #fff;
+  }
+
+  &.mat-umb-light {
+    background-color: #fefefe;
+    color: #555;
+  }
+}
+
 // Sidenav -------------------------------------------------------------------------------------------------------------
 .umb-content {
   height: 100%;
@@ -112,4 +132,44 @@ body {
     }
 
   }
+}
+
+// Graph simulator
+.graph-simulator {
+  flex-grow: 1;
+  box-sizing: content-box;
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: 0 .3rem;
+    }
+
+    .play {
+      font-size: 16px;
+    }
+
+    .timing {
+      padding-left: .3rem;
+    }
+  }
+
+  .graph {
+    margin: 1rem 2rem 0 2rem;
+    width: 400px;
+
+    .chart-box {
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+
+// Do hack
+.do-hack {
+  flex-grow: 1;
 }

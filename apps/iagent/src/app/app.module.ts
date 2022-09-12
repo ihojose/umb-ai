@@ -16,6 +16,11 @@ import { MatListModule } from '@angular/material/list';
 import { PerceptronComponent } from './components/perceptron/perceptron.component';
 import { IntelligentAgentComponent } from './components/intelligent-agent/intelligent-agent.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule( {
   declarations: [
@@ -33,7 +38,12 @@ import { MatTableModule } from '@angular/material/table';
     FontAwesomeModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatSnackBarModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

@@ -9,10 +9,12 @@
  * <p>
  * This file was write by Jose Buelvas <jbuelva@bancodebogota.com.co>.
  */
-export interface AndModel {
+export interface PerceptronModel {
   x1: number;
   x2: number;
-  output: number;
+  expectedOutput: number;
+  receivedOutput?: number;
+  finalOutput?: number;
 }
 
 export interface VarModel {
@@ -23,4 +25,17 @@ export interface VarModel {
 export interface InputModel {
   name: string;
   input: number;
+}
+
+export interface NeuronModel {
+  weightNum: number;
+  weights: number[];
+  error: number;
+  bias: number;
+  init: ( numWights: number ) => void;
+  trainingRate: number;
+  output: ( inputs: PerceptronModel ) => number;
+  train: ( gates: PerceptronModel[] ) => number;
+  weightAdjust: ( error: number, currentInput: PerceptronModel ) => void;
+  steppedCorrection: ( val: number ) => number;
 }
