@@ -33,6 +33,7 @@ body {
 }
 
 // Buttons
+.mat-button-base,
 .mat-button {
   &.mat-umb {
     background-color: $color-umb;
@@ -126,17 +127,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-
-    > div {
-      width: 250px;
-    }
-
   }
 }
 
 // Graph simulator
 .graph-simulator {
   flex-grow: 1;
+  width: 25%;
   box-sizing: content-box;
 
   .controls {
@@ -172,4 +169,26 @@ body {
 // Do hack
 .do-hack {
   flex-grow: 1;
+}
+
+.sphere {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #555555;
+  color: #fff;
+}
+
+.train-res {
+  &.great {
+    background-color: #83ffb5;
+  }
+
+  &.error {
+    background-color: #ffc0c8;
+  }
 }

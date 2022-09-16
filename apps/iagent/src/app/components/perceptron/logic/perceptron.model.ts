@@ -32,10 +32,5 @@ export interface NeuronModel {
   weights: number[];
   error: number;
   bias: number;
-  init: ( numWights: number ) => void;
   trainingRate: number;
-  output: ( inputs: PerceptronModel ) => number;
-  train: ( gates: PerceptronModel[] ) => number;
-  weightAdjust: ( error: number, currentInput: PerceptronModel ) => void;
-  steppedCorrection: ( val: number ) => number;
 }

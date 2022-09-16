@@ -7,7 +7,7 @@
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Tasa de aprendizaje</mat-label>
-              <input matInput type="text" [(ngModel)]="neuron.trainingRate" [disabled]="playing">
+              <input matInput type="number" [(ngModel)]="neuron.trainingRate" [disabled]="playing">
             </mat-form-field>
           </td>
         </tr>
@@ -15,7 +15,7 @@
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Sesgo</mat-label>
-              <input matInput type="text" [(ngModel)]="neuron.bias" [disabled]="true">
+              <input matInput type="number" [(ngModel)]="neuron.bias" [disabled]="playing">
             </mat-form-field>
           </td>
         </tr>
@@ -23,7 +23,7 @@
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Número de pesos</mat-label>
-              <input matInput type="text" [(ngModel)]="neuron.weightNum" disabled>
+              <input matInput type="number" [(ngModel)]="neuron.weightNum" disabled>
             </mat-form-field>
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Peso #{{ $i + 1 }}</mat-label>
-              <input matInput type="text" [(ngModel)]="neuron.weights[$i]" [disabled]="true">
+              <input matInput type="number" [(ngModel)]="neuron.weights[$i]" [disabled]="playing">
             </mat-form-field>
           </td>
         </tr>
@@ -54,7 +54,7 @@
           <fa-icon [icon]="['fas', 'pause']"></fa-icon>
         </button>
         <div class="timing">
-          <strong>ENTRENANDO: {{ trainIteration }}</strong>
+          <strong>ITERACIÓN: {{ trainIteration }}</strong>
         </div>
 
       </div>
@@ -69,7 +69,7 @@
           [datasets]="lineChartData.datasets"
           [labels]="lineChartData.labels"
           [type]="'line'"
-          [options]="{animation:{duration:0},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}"
+          [options]="{animation:{duration:0},scales:{x:{grid:{display:false}},y:{grid:{display:false},ticks:{display:false}}}}"
         ></canvas>
 
         <strong>PORCENTAJE DE ERROR: {{ errorPer() }}%</strong>
@@ -77,9 +77,48 @@
       </div>
 
     </div>
-    <div class="do-hack">
+    <div class="do-hack graph-simulator">
 
       <h3>PROBEMOS:</h3>
+
+      <div class="controls">
+        <span>Ingresa los valores de X<sub>1</sub> y X<sub>2</sub> para comprobar que la neurona ha aprendido.</span>
+      </div>
+
+      <table style="margin-top: 1rem">
+        <tr>
+          <td>
+            <mat-form-field appearance="standard">
+              <mat-label>X<sub>1</sub></mat-label>
+              <input matInput type="number" [(ngModel)]="inputs.x1" [disabled]="playing">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="standard">
+              <mat-label>X<sub>2</sub></mat-label>
+              <input matInput type="number" [(ngModel)]="inputs.x2" [disabled]="playing">
+            </mat-form-field>
+          </td>
+          <td>
+            <button mat-raised-button color="umb" class="play" (click)="doTest()" [disabled]="playing">
+              COMPROBAR
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <h3>RESULTADO:</h3>
+
+      <div class="sphere mat-elevation-z3">
+        {{ toFix( result, 2 ) }}
+      </div>
+
+      <h3>RESULTADO CORREGIDO:</h3>
+
+      <div class="sphere mat-elevation-z3">
+        {{ steppedCorrection( result ) }}
+      </div>
+
     </div>
 
     <div class="gates-container">
@@ -88,16 +127,22 @@
         <h3>COMPUERTA AND:</h3>
         <table mat-table [dataSource]="gates" class="mat-elevation-z4 gate-box center">
           <ng-container matColumnDef="x1">
-            <th mat-header-cell *matHeaderCellDef> X1</th>
+            <th mat-header-cell *matHeaderCellDef>X1</th>
             <td mat-cell *matCellDef="let element"> {{element.x1}} </td>
           </ng-container>
           <ng-container matColumnDef="x2">
-            <th mat-header-cell *matHeaderCellDef> X2</th>
+            <th mat-header-cell *matHeaderCellDef>X2</th>
             <td mat-cell *matCellDef="let element"> {{element.x2}} </td>
           </ng-container>
           <ng-container matColumnDef="output">
-            <th mat-header-cell *matHeaderCellDef> Y</th>
+            <th mat-header-cell *matHeaderCellDef>Valor<br>esperado</th>
             <td mat-cell *matCellDef="let element"> {{element[ 'expectedOutput' ]}} </td>
+          </ng-container>
+          <ng-container matColumnDef="result">
+            <th mat-header-cell *matHeaderCellDef>Calibración</th>
+            <td mat-cell
+                *matCellDef="let element" class="train-res"
+                [class]="validate(element[ 'expectedOutput' ], element[ 'finalOutput' ]) ? 'great' : 'error'"> {{toFix( element[ 'finalOutput' ], 2 )}} </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
