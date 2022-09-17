@@ -189,6 +189,10 @@ export class PerceptronComponent implements OnInit {
     return ( this.neuron.error * 100 ).toFixed( 2 );
   }
 
+  public precision(): string {
+    return ( 100 - ( this.neuron.error * 100 ) ).toFixed( 2 );
+  }
+
   public toFix( val: number, fraction: number = 2 ): string {
     return val.toFixed( fraction );
   }

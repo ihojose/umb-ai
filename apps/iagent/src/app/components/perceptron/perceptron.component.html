@@ -147,6 +147,12 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+
+        <div class="graph" style="margin-top: 1rem">
+
+          <strong>Precisión: {{ precision() }}%</strong>
+
+        </div>
       </div>
 
     </div>
