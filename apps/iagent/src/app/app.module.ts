@@ -21,11 +21,13 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgChartsModule } from 'ng2-charts';
+import { PerceptronFourComponent } from './components/perceptron-four/perceptron-four.component';
 
 @NgModule( {
   declarations: [
     AppComponent,
     PerceptronComponent,
+    PerceptronFourComponent,
     IntelligentAgentComponent
   ],
   imports: [
